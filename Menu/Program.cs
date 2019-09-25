@@ -60,14 +60,14 @@ namespace Menu
         break;
 
         case "5":
-        Console.WriteLine("Área doretângulo");
+        Console.WriteLine("Área do retângulo");
         Console.Write("Entre com o valor da base:");
         double base = double.Parse(Console.ReadLine());
         Console.Write("Entre com o valor da altura");
         double altura = double.Parse(Console.ReadLine());
         double area = double.Parse(Console.ReadLine());
         double area = base * altura;
-
+        Console.WriteLine("A area do retângulo é: " + areatr);
 
         }
         
