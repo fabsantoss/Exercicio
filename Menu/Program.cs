@@ -67,7 +67,7 @@ namespace Menu
         double altura = double.Parse(Console.ReadLine());
         double area = double.Parse(Console.ReadLine());
         double area = base * altura;
-        Console.WriteLine("A area do retângulo é: " + areatr);
+        Console.WriteLine("A area do retângulo é: " + area);
 
         }
         
