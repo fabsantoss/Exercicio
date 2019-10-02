@@ -8,8 +8,6 @@ namespace Usuario
         {
             string admLogin = "admin";
             string admPasswd  = "admin";
-           
-
             Console.Write("Nome de usuario: ");
             string Login = Console.ReadLine();
             Console.WriteLine("Senha: ");

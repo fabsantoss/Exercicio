@@ -33,7 +33,7 @@ namespace temperatura
                 Console.WriteLine($"A maior temperatura é:  {maior}");
                 Console.WriteLine($"A menor temperatura é:  {menor}");
 
-         }
+        }
 
     }
 

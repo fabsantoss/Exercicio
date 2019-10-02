@@ -10,7 +10,6 @@ namespace MateODragao
             do
             {
 
-
                 Console.Clear();
                 System.Console.WriteLine("==============================");
                 System.Console.WriteLine("       Mate o Dragão!");
@@ -25,46 +24,27 @@ namespace MateODragao
                 {
                     case "1":
                         Console.Clear();
-                        Guerreiro guerreiro = new Guerreiro();
-                        guerreiro.Nome = "Skay";
-                        guerreiro.Sobrenome = "Harper";
-                        guerreiro.CidadeNatal = "Atenas";
-                        guerreiro.DataNascimento = DateTime.Parse("20/01/1996 a.c");
-                        guerreiro.FerramentaAtaque = "Espada";
-                        guerreiro.FerramentaProtecao = "Armadura de ferro e escudo";
-                        guerreiro.Forca = 3;
-                        guerreiro.Destreza = 2;
-                        guerreiro.Inteligencia = 3;
-                        guerreiro.Vida = 20;
+                        
+                        Guerreiro guerreiro = CriarGuerreiro();
 
-                        Dragao dragao = new Dragao();
-                        dragao.Nome = "Garibaldo";
-                        dragao.Forca = 5;
-                        dragao.Destreza = 1;
-                        dragao.Inteligencia = 3;
-                        dragao.Vida = 300;
+                        Dragao dragao = CriarDragao();
 
                         /*INICIO - Primeiro Dialogo */
-                        System.Console.WriteLine($"{guerreiro.Nome.ToUpper()}: {dragao.Nome}, seu louco! Vim-lhe derrotar-lhe!");
-                        System.Console.WriteLine($"{dragao.Nome.ToUpper()}: Humano tolinho. Quem pensas que és?");
+                        CriarDialogo(guerreiro.Nome, $"{dragao.Nome}, seu louco! Vim-lhe derrotar-lhe!");
+                        CriarDialogo(dragao.Nome, "Humano tolinho. Quem pensas que és?");
 
-                        System.Console.WriteLine();
-                        System.Console.WriteLine("Aperte ENTER para prosseguir");
-                        Console.ReadLine();
+                        FinalizarDialogo();
 
-
-                        /*FIM- Primeiro Dialogo */
+                        /*FIM-  Do Primeiro Dialogo */
 
                         /*INICIO- Segundo Dialogo */
-                        System.Console.WriteLine($"{guerreiro.Nome.ToUpper()}:Eu sou {guerreiro.Nome}! Da casa {guerreiro.Sobrenome}, ó criatura morfética");
-                        System.Console.WriteLine($"{guerreiro.Nome.ToUpper()}: Vim de {guerreiro.CidadeNatal} para derrotar-te e mostrar meu valor!");
-                        System.Console.WriteLine($"{dragao.Nome.ToUpper()}: QUEM? DE ONDE? bom, que seja... fritar-te-ei e devorar-te-ei, primata insolente!");
+                        CriarDialogo(guerreiro.Nome, $"Eu sou {guerreiro.Nome}! Da casa {guerreiro.Sobrenome}, ó criatura morfética");
+                        CriarDialogo(guerreiro.Nome, $" Vim de {guerreiro.CidadeNatal} para derrotar-te e mostrar meu valor!");
+                        CriarDialogo(dragao.Nome, $" QUEM? DE ONDE? bom, que seja... fritar-te-ei e devorar-te-ei, primata insolente!");
 
                         System.Console.WriteLine("MARRONE: Tá na hora do Show!");
 
-                        System.Console.WriteLine();
-                        System.Console.WriteLine("Apertar ENTER para prosseguir");
-                        Console.ReadLine();
+                        FinalizarDialogo();
 
                         /*FIM- Segundo Dialogo */
                         Console.Clear();
@@ -146,7 +126,7 @@ namespace MateODragao
                             Console.ReadLine();
 
                             Console.Clear();
-                            
+
                             System.Console.WriteLine("**** Turno do Jogador ****");
                             System.Console.WriteLine("Escolha uma açâo");
                             System.Console.WriteLine(" 1 - Atacar");
@@ -157,11 +137,11 @@ namespace MateODragao
                             switch (opcaoBatalhaJogador)
                             {
                                 case "1":
-                                    Random geradorNumeroAleatorio = new Random();
-                                    int numeroAleatorioJogador = geradorNumeroAleatorio.Next(0, 5);
-                                    int numeroAleatorioDragao = geradorNumeroAleatorio.Next(0, 5);
-                                    int guerreiroDestrezaTotal = guerreiro.Destreza + numeroAleatorioJogador;
-                                    int dragaoroDestrezaTotal = dragao.Destreza + numeroAleatorioDragao;
+                                    geradorNumeroAleatorio = new Random();
+                                    numeroAleatorioJogador = geradorNumeroAleatorio.Next(0, 5);
+                                    numeroAleatorioDragao = geradorNumeroAleatorio.Next(0, 5);
+                                    guerreiroDestrezaTotal = guerreiro.Destreza + numeroAleatorioJogador;
+                                    dragaoroDestrezaTotal = dragao.Destreza + numeroAleatorioDragao;
 
                                     if (guerreiroDestrezaTotal > dragaoroDestrezaTotal)
                                     {
@@ -183,8 +163,18 @@ namespace MateODragao
                                     jogadorNaoCorreu = false;
                                     break;
                             }
+
+
                         }
 
+                        if (guerreiro.Vida <= 0)
+                        {
+                            System.Console.WriteLine("V");
+                        }
+                        if (dragao.Vida <= 0)
+                        {
+                            System.Console.WriteLine(" Você venceu!");
+                        }
 
                         break;
                     case "0":
@@ -196,6 +186,47 @@ namespace MateODragao
                         break;
                 }
             } while (jogadorNaoDesistiu);
+        }
+
+        public static void CriarDialogo(string nome, string frase)
+        {
+            System.Console.WriteLine($"{nome.ToUpper()}:\n-{frase}");
+        }
+
+        public static void FinalizarDialogo()
+        {
+            System.Console.WriteLine();
+            System.Console.WriteLine("Apertar ENTER para prosseguir");
+            Console.ReadLine();
+            Console.Clear();
+        }
+
+        public static Guerreiro  CriarGuerreiro()
+        {
+            Guerreiro guerreiro = new Guerreiro();
+            guerreiro.Nome = "Skay";
+            guerreiro.Sobrenome = "Harper";
+            guerreiro.CidadeNatal = "Atenas";
+            guerreiro.DataNascimento = DateTime.Parse("20/01/1996 ");
+            guerreiro.FerramentaAtaque = "Espada";
+            guerreiro.FerramentaProtecao = "Armadura de ferro e escudo";
+            guerreiro.Forca = 3;
+            guerreiro.Destreza = 2;
+            guerreiro.Inteligencia = 3;
+            guerreiro.Vida = 20;
+
+            return guerreiro;
+        }
+        public static Dragao CriarDragao()
+        {
+            Dragao dragao = new Dragao();
+                        dragao.Nome = "Garibaldo";
+                        dragao.Forca = 5;
+                        dragao.Destreza = 1;
+                        dragao.Inteligencia = 3;
+                        dragao.Vida = 300;
+
+            return dragao;            
         }
     }
 }

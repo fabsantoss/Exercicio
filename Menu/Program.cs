@@ -62,15 +62,16 @@ namespace Menu
         case "5":
         Console.WriteLine("Área do retângulo");
         Console.Write("Entre com o valor da base:");
-        double base = double.Parse(Console.ReadLine());
+        double base1 = double.Parse(Console.ReadLine());
         Console.Write("Entre com o valor da altura");
-        double altura = double.Parse(Console.ReadLine());
+        double altura1 = double.Parse(Console.ReadLine());
         double area = double.Parse(Console.ReadLine());
-        double area = base * altura;
+        double area1 = base1 * altura1;
         Console.WriteLine("A area do retângulo é: " + area);
+        break;
 
         }
         
     }
-  }
+}
 }

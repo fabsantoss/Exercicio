@@ -1,3 +1,5 @@
+using System;
+
 namespace MateODragao
 {
     public class Guerreiro

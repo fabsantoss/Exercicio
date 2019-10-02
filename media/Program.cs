@@ -6,7 +6,7 @@ namespace media
     {
         static void Main(string[] args)
         {
-           double nota1, nota2, nota3, nota4, media;
+        double nota1, nota2, nota3, nota4, media;
 
             Console.Write("Digite a 1º nota: ");
             nota1 = double.Parse(Console.ReadLine());
@@ -22,9 +22,9 @@ namespace media
             Console.WriteLine("Sua média é " + media);
 
             if (media >= 7.0 ){
-                 Console.WriteLine("aprovado");
+                Console.WriteLine("aprovado");
             }  else if (media < 7) {
-                 Console.WriteLine("Reprovado");
+                Console.WriteLine("Reprovado");
             }
         }
     }

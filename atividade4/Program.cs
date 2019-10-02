@@ -8,7 +8,7 @@ namespace atividade4
         {  
 
             for (int i= 1; i<=10; i++ ){
-             Console.WriteLine($"5 x ");
+            Console.WriteLine($"5 x ");
             }
         }
     }

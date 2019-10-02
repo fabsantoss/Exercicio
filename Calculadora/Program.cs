@@ -11,7 +11,7 @@ namespace Calculadora
             string oper;
             
 
-           Console.WriteLine ("Digite o 1º número:");
+        Console.WriteLine ("Digite o 1º número:");
             num1 = int.Parse(Console.ReadLine());
             Console.WriteLine("Digite o 2º número:");
             num2 = int.Parse(Console.ReadLine());
@@ -20,33 +20,31 @@ namespace Calculadora
 
             switch (oper) {
                 case "+" : 
-              Console.WriteLine($"{num1} + {num2} = { num1 + num2}");
+            Console.WriteLine($"{num1} + {num2} = { num1 + num2}");
             break;
 
                 case "-" :
                 Console.WriteLine($"{num1} - {num2} = { num1 - num2}");
-             break;
+            break;
 
                 case "*" :
                  Console.WriteLine($"{num1} * {num2} = { num1 * num2}");
-             break;
+            break;
 
-             case "/" :
-              Console.WriteLine($"{num1} / {num2} = { num1 / num2}");
-             break;
+            case "/" :
+            Console.WriteLine($"{num1} / {num2} = { num1 / num2}");
+            break;
 
-              case "%" :
-              Console.WriteLine($"{num1} % {num2} = { num1 % num2}");
+            case "%" :
+            Console.WriteLine($"{num1} % {num2} = { num1 % num2}");
             break;
 
             default:
             Console.WriteLine("operação invalida!");
-             break;
+            break;
         
             }
             
-
-                   
         }
     }
 }
