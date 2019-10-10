@@ -1,3 +1,5 @@
+using System;
+
 namespace Senaizinho
 {
     public class Sala
@@ -5,28 +7,72 @@ namespace Senaizinho
         public int CapacidadeAtual;
         public int CapacidadeTotal;
         public int numeroSala;
-        public string[] Alunos = new string [10];
-        public Sala(int CapacidadeAtual, int CapacidadeTotal)
+        public string[] Alunos ;
+        public Sala(int numeroSala, int CapacidadeTotal)
         {
-            this.CapacidadeAtual = CapacidadeAtual;
+            this.numeroSala = numeroSala;
             this.CapacidadeTotal = CapacidadeTotal;
+            this.CapacidadeAtual = this.CapacidadeTotal;
+            this.Alunos = new string[CapacidadeTotal];
             
         }
-            public string AlocarAluno(string Nome){
-                if(CapacidadeAtual <= CapacidadeAtual){  
-                    return  System.Console.WriteLine("Sua matricula foi realizada");
-                } else{
-                    return System.Console.WriteLine("Não foi possivel realizar sua matricula");
+            public string AlocarAluno(string NomeAluno)
+            {
+            
+                int index = 0;
+                if(CapacidadeAtual > 0)
+                {  
+                foreach(string aluno in this.Alunos)
+                    {
+                    if (aluno == "")
+                    {
+                        this.Alunos[index] = NomeAluno;
+                        break;
+                    }
+                        index++;
+                    }
+                    this.CapacidadeAtual--;
+                    return "Ok";
+                } else
+                {
+                    return "Lotado";
                 }
             }
 
-            public string RemoverAluno(string Nome){
-                
+            public string RemoverAluno(string nomeAluno)
+            {
+                int index = 0;
 
+                if(this.CapacidadeAtual == this.CapacidadeTotal )
+                {
+                    return "Sala vazia";
+                }
+
+                foreach(string aluno in this.Alunos)
+                {
+                    if(nomeAluno == aluno)
+                    {
+                        this.Alunos[index] = "" ;
+                        return "Ok";
+                    }
+                    index++;
+                }
+                return "Não encontrado";
             }
 
-            public string MostraAlunos(string Alunos){
-                
+            public string MostraAlunos() 
+            {
+                string listaAlunos="";
+                foreach(string aluno in this.Alunos)
+                {
+
+                    if( aluno != "")
+                    {
+                        listaAlunos = listaAlunos + aluno + " ";
+                    }
+                }
+                listaAlunos.TrimEnd();
+                return listaAlunos;
             }
     }
 }

@@ -47,17 +47,14 @@ namespace TODOList
                 switch(opcao)
                 {
                     case 1:
-                    /**
-                    * TODO: Método de adicionar itens à lista 
-                     */
+                    AddItem(TODOList);
                     break;
                     case 2:
-                    /**
-                    * TODO: Método de remover itens à lista 
-                     */
+                    RemoveItem(TODOList);
                     break;
                     case 3:
                     System.Console.WriteLine("Tchau!");
+                    SaveItem(TODOList,filePath);
                     break;
                     default:
                     System.Console.WriteLine("opção invalida");
@@ -70,6 +67,40 @@ namespace TODOList
 
 
         }
+
+        static void SaveItem(List<Todoitem> lista, string filePath)
+        {
+            List<string> linhas = new List<string>();
+            linhas.Add("tile, note");
+            foreach(Todoitem item in lista)
+            {
+                string titulo = "\"" + item.Titulo + "\"";
+                string nota = "\"" + item.Nota + "\"";
+                linhas.Add(titulo + "," + nota);
+            }
+            string tryAgain ="n";
+            do
+            {
+            try
+            {
+                File.WriteAllLines(filePath, linhas);
+                tryAgain = "n";
+            } 
+            catch(IOException e)
+            {
+                Console.WriteLine("Erro na gravação do arquivo.");
+                Console.WriteLine(e.Message);
+                do
+                {
+                    Console.WriteLine("Deseja tentar novamente?");
+                    tryAgain = Console.ReadLine().ToLower();
+
+
+                } while(tryAgain == "$" || tryAgain == "n");
+            }
+            } while (tryAgain !="n");
+        }
+        
 
         public static void ListaItens(List<Todoitem> todoList)
         {
@@ -98,6 +129,38 @@ namespace TODOList
 
             todoList.Add(item);
 
+        }
+
+        public static void RemoveItem(List<Todoitem> todoList)
+        {
+            int index = 0;
+            do{
+                Console.Clear();
+                System.Console.WriteLine("Remove item");
+                System.Console.WriteLine();
+                ListaItens(todoList);
+                System.Console.WriteLine();
+                System.Console.WriteLine("Digite a ID ou X para terminar");
+                System.Console.WriteLine("ID: ");
+                string id = Console.ReadLine();
+
+                if ( id.ToLower() == "x")
+                {
+                    break;
+                }
+                else {
+                    index = int.Parse(id) - 1 ;
+                }
+
+                if ((index < 0) || (index > todoList.Count -1))
+                {
+                    System.Console.WriteLine("ID Invalido");
+                    System.Console.WriteLine("Pressione <enter> para continuar:");
+                    Console.ReadLine();
+                } else {
+                    todoList.RemoveAt(index);
+                }
+            } while(true);
         }
     }
 }
