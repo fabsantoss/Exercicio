@@ -48,8 +48,8 @@ namespace Senaizinho
                     }
                     index++;
                 }
+                alunosCadastrados++;
             }
-            alunosCadastrados++;
         }
         
     }

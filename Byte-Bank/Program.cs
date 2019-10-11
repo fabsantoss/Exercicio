@@ -15,6 +15,8 @@ namespace ByteBank
         string email = Console.ReadLine();
 
         Cliente cliente1 = new Cliente(nome,cpf,email);
+        Console.WriteLine(cliente1.Senha);
+        
         
         bool trocouSenha = false;
         do{
@@ -34,19 +36,19 @@ namespace ByteBank
         int agencia = int.Parse(Console.ReadLine());
         Console.Write("Entre com a conta: ");
         int conta = int.Parse(Console.ReadLine());
+        
 
         ContaCorrente contacorrente1 = new ContaCorrente(agencia,conta,cliente1);
         double saldo;
         do{
             Console.WriteLine("Entre com o saldo: ");
             saldo = double.Parse(Console.ReadLine());
-            if (saldo >= 0) {
-                contacorrente1.Saldo = saldo;
-            }else {
+            if (!contacorrente1.Deposito(saldo)) {
                 Console.WriteLine("Valor do saldo deve ser positivo.");
             }
             }while(saldo < 0);
             Console.WriteLine();
+            
 
             Cliente cliente2= new Cliente("Cesar","123.456.789-10","1@as.com");
             ContaCorrente contaCorrente2 = new ContaCorrente(123,312,cliente2);
@@ -54,7 +56,7 @@ namespace ByteBank
             #region Deposito.
             Cliente usuario = contacorrente1.Titular;
             Console.WriteLine("ByteBank - Depósito em conta");
-            Console.WriteLine($"Bem vindo - {usuario.Nome}");
+            Console.WriteLine($"Bem vindo - {usuario._Nome}");
             Console.WriteLine($"Agencia {contacorrente1.Agencia} Conta: {contacorrente1.Numero}");
             Console.WriteLine($"Saldo: {contacorrente1.Saldo}");
             Console.Write("Digite o valor de depósito: ");
@@ -67,7 +69,7 @@ namespace ByteBank
 
             #region Saque.
             Console.WriteLine("ByteBank - Saque");
-            Console.WriteLine($"Bem Vindo - {usuario.Nome}");
+            Console.WriteLine($"Bem Vindo - {usuario._Nome}");
             Console.WriteLine($"Agencia {contacorrente1.Agencia} Conta: {contacorrente1.Numero}");
             Console.WriteLine($"Saldo: {contacorrente1.Saldo}");
             Console.WriteLine();
@@ -81,7 +83,7 @@ namespace ByteBank
 
             #region Trasferência.
             Console.WriteLine("ByteBank - Transferência");
-            Console.WriteLine($"Bem Vindo - {usuario.Nome}");
+            Console.WriteLine($"Bem Vindo - {usuario._Nome}");
             Console.WriteLine($"Agencia {contacorrente1.Agencia} Conta: {contacorrente1.Numero}");
             Console.WriteLine($"Saldo: {contacorrente1.Saldo}");
             Console.WriteLine();
