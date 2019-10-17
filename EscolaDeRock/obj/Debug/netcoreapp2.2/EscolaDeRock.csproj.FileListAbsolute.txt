@@ -1,0 +1,11 @@
+C:\Users\52655460812\Documents\Exercicios\EscolaDeRock\bin\Debug\netcoreapp2.2\EscolaDeRock.deps.json
+C:\Users\52655460812\Documents\Exercicios\EscolaDeRock\bin\Debug\netcoreapp2.2\EscolaDeRock.runtimeconfig.json
+C:\Users\52655460812\Documents\Exercicios\EscolaDeRock\bin\Debug\netcoreapp2.2\EscolaDeRock.runtimeconfig.dev.json
+C:\Users\52655460812\Documents\Exercicios\EscolaDeRock\bin\Debug\netcoreapp2.2\EscolaDeRock.dll
+C:\Users\52655460812\Documents\Exercicios\EscolaDeRock\bin\Debug\netcoreapp2.2\EscolaDeRock.pdb
+C:\Users\52655460812\Documents\Exercicios\EscolaDeRock\obj\Debug\netcoreapp2.2\EscolaDeRock.csprojAssemblyReference.cache
+C:\Users\52655460812\Documents\Exercicios\EscolaDeRock\obj\Debug\netcoreapp2.2\EscolaDeRock.csproj.CoreCompileInputs.cache
+C:\Users\52655460812\Documents\Exercicios\EscolaDeRock\obj\Debug\netcoreapp2.2\EscolaDeRock.AssemblyInfoInputs.cache
+C:\Users\52655460812\Documents\Exercicios\EscolaDeRock\obj\Debug\netcoreapp2.2\EscolaDeRock.AssemblyInfo.cs
+C:\Users\52655460812\Documents\Exercicios\EscolaDeRock\obj\Debug\netcoreapp2.2\EscolaDeRock.dll
+C:\Users\52655460812\Documents\Exercicios\EscolaDeRock\obj\Debug\netcoreapp2.2\EscolaDeRock.pdb

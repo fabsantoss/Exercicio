@@ -1,9 +1,9 @@
 using System;
-using EscolaDeRock.Models;
+using EscolaDeRock.Interfaces;
 
 namespace EscolaDeRock.Models
 {
-    public class Teclado : IMelodia, IHarmonia
+    public class Teclado : InstrumentoMusical, IMelodia, IHarmonia
     {
         public bool TocarAcordes()
         {

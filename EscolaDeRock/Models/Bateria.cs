@@ -5,7 +5,7 @@ namespace EscolaDeRock.Models
 {
     public class Bateria: InstrumentoMusical, IPercussao
     {
-        public bool ManterRitmo()
+        public bool ManterORitmo()
         {
             Console.WriteLine("Mantendo o ritmo da bateria.");
             return true;

@@ -1,7 +1,7 @@
 using System;
 
 
-namespace EscolaDeRock.Models
+namespace EscolaDeRock.Interfaces
 {
     public interface IHarmonia
     {

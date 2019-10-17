@@ -1,5 +1,5 @@
 using System;
-using EscolaDeRock.Models;
+using EscolaDeRock.Interfaces;
 
 namespace EscolaDeRock.Models
 {

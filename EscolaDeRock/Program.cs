@@ -31,7 +31,7 @@ namespace EscolaDeRock
     {
         static void Main(string[] args)
         {
-            bool querSair;
+            bool querSair = false;
             string[] itensMenuPrincipal = Enum.GetNames(typeof(FormacaoEnum));
             string[] itensMenuCategoria = Enum.GetNames(typeof(CategoriaEnum));
 
@@ -88,7 +88,7 @@ namespace EscolaDeRock
                         break;
                         
                     }
-
+                    #endregion
                 } while(formaçaoEscolhida);
             } while (!querSair);
         }
