@@ -3,13 +3,11 @@ using Reciclagem.Interfaces;
 
 namespace Reciclagem.Models
 {
-    public class GarrafaPet : IPlastico
+    public class GarrafaPet : Lixeiras, IPlastico
     {
-        public bool ReciclaPlastico()
+        public string ReciclaPlastico()
         {
-            Console.WriteLine("Lixeira: Vermelha");
-            Console.WriteLine("GarrafaPet");
-            return true;
+            return this.GetType().Name;
         }
     }
 }

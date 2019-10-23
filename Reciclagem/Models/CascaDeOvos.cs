@@ -3,13 +3,11 @@ using Reciclagem.Interfaces;
 
 namespace Reciclagem.Models
 {
-    public class CascaDeOvos : IOrganico
+    public class CascaDeOvos : Lixeiras, IOrganico
     {
-        public bool ReciclaOrganico()
+        public string ReciclaOrganico()
         {
-            Console.WriteLine("Lixeira: Preta");
-            Console.WriteLine("Lixo: Casca de ovo");
-            return true;
+            return this.GetType().Name;
         }
     }
 }

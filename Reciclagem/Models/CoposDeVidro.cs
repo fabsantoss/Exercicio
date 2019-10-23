@@ -3,13 +3,11 @@ using Reciclagem.Interfaces;
 
 namespace Reciclagem.Models
 {
-    public class CoposDeVidro : IVidro
+    public class CoposDeVidro : Lixeiras, IVidro
     {
-        public bool ReciclaVidro()
+        public string ReciclaVidro()
         {
-            Console.WriteLine("Lixeira: Verde");
-            Console.WriteLine("Lixo: Copo de Vidro");
-            return true;
+            return this.GetType().Name;
         }
     }
 }

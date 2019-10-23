@@ -45,5 +45,10 @@ namespace ByteBank2.Models
                 return false;
             }
         }
+
+        internal bool Transferencia(ContaBancaria conta2, double valor)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
