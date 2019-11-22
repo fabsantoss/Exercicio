@@ -6,9 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace McBonaldsMVC.Controllers
 {
-    public class ClienteController : Controller
+    public class ClienteController : AbstratcController
     {
-        private  const string  SESSION_CLIENTE_EMAIL = "cliente_email";
+        
         private ClienteRepository  clienteRepository = new ClienteRepository();
 
         private PedidoRepository pedidoRepository = new PedidoRepository();
@@ -40,6 +40,7 @@ namespace McBonaldsMVC.Controllers
                     if(cliente.Senha.Equals(senha))
                     {
                         HttpContext.Session.SetString(SESSION_CLIENTE_EMAIL, usuario);
+                        HttpContext.Session.SetString(SESSION_CLIENTE_NOME, cliente.Nome);
                         return RedirectToAction("Historico", "Cliente");
                     }
                     else

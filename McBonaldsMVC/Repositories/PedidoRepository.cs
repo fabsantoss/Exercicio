@@ -49,7 +49,7 @@ namespace McBonaldsMVC.Repositories
             {
                 Pedido pedido = new Pedido();
                 pedido.Cliente.Nome = ExtrairValorDoCampo("cliente_nome", linha);
-                pedido.Cliente.Endereco = ExtrairValorDoCampo("cliente_endereco", linha);
+                pedido.Cliente.Endereco = ExtrairValorDoCampo("cliente_endereco",linha);
                 pedido.Cliente.Email = ExtrairValorDoCampo("cliente_email", linha);
                 pedido.Cliente.Telefone = ExtrairValorDoCampo("cliente_telefone", linha);
                 pedido.Hamburguer.Nome = ExtrairValorDoCampo("hamburguer_nome", linha);

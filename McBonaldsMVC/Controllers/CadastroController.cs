@@ -17,7 +17,7 @@ namespace McBonaldsMVC.Controllers
         {
             ViewData["Action"] = "Cadastro";
             try{
-                Cliente cliente = new Cliente(form["nome"],form["endereço"],form["telefone"],form["senha"],form["email"],DateTime.Parse(form["data-nascimento"]));
+                Cliente cliente = new Cliente(form["nome"],form["endereco"],form["telefone"],form["senha"],form["email"],DateTime.Parse(form["data-nascimento"]));
                 
                 clienteRepository.Inserir(cliente);
                 
