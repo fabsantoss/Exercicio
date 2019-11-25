@@ -34,6 +34,23 @@ namespace McBonaldsMVC.Controllers
                 pmv.NomeCliente = nomeUsuario;
             }
 
+            var usuarioLogado = ObterUsuarioSession();
+            var nomeUsuarioLogado = ObterUsuarioNomeSession();
+            if (!string.IsNullOrEmpty(nomeUsuarioLogado))
+            {
+                pmv.UsuarioNome = nomeUsuarioLogado;
+            }
+
+            var clienteLogado = clienteRepository.ObterPor(usuarioLogado);
+            if (clienteLogado != null)
+            {
+                pmv.cliente = clienteLogado;
+            }
+
+            pmv.NomeView = "Pedido";
+            pmv.UsuarioEmail = ObterUsuarioSession();
+            pmv.UsuarioNome = ObterUsuarioNomeSession();
+
             return View (pmv);
         }
 

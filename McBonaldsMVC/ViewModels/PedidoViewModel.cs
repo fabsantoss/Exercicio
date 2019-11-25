@@ -1,9 +1,10 @@
 using System.Collections.Generic;
 using McBonaldsMVC.Models;
+using McBonaldsMVC.ViewModels;
 
 namespace McBonaldsMVC.ViewModel
 {
-    public class PedidoViewModel
+    public class PedidoViewModel : BaseViewModel 
     {
         public List<Hamburguer> Hamburgueres {get;set;}
         public List<Shake> Shakes {get;set;}
