@@ -24,10 +24,10 @@ namespace McBonaldsMVC.Controllers
 
         protected string ObterUsuarioNomeSession()
         {
-            var nomeusuario = HttpContext.Session.GetString(SESSION_CLIENTE_NOME);
-            if(!string.IsNullOrEmpty(nomeusuario))
+            var nomeUsuario = HttpContext.Session.GetString(SESSION_CLIENTE_NOME);
+            if(!string.IsNullOrEmpty(nomeUsuario))
             {
-                return nomeusuario;
+                return nomeUsuario;
             }
             else
             {

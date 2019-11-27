@@ -2,6 +2,7 @@ using System;
 using McBonaldsMVC.Models;
 using McBonaldsMVC.Repositories;
 using McBonaldsMVC.ViewModel;
+using McBonaldsMVC.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -91,7 +92,10 @@ namespace McBonaldsMVC.Controllers
             pedido.PrecoTotal = hamburguer.Preco + shake.Preco;
 
             if(pedidoRepository.Inserir(pedido)){
-                return View("Sucesso");
+                return View("Sucesso", new RespostaViewModel(){
+                UsuarioEmail = ObterUsuarioSession(),
+                UsuarioNome = ObterUsuarioNomeSession()
+                });
             }else {
                 return View("Erro");
             }
