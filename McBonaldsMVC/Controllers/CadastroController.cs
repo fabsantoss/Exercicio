@@ -17,6 +17,7 @@ namespace McBonaldsMVC.Controllers
                 NomeView = "Cadastro",
                 UsuarioEmail = ObterUsuarioSession(),
                 UsuarioNome = ObterUsuarioNomeSession()
+                
             });
             
         }
@@ -29,6 +30,7 @@ namespace McBonaldsMVC.Controllers
                 clienteRepository.Inserir(cliente);
                 
                 return View("Sucesso", new RespostaViewModel(){
+                NomeView = "Cadastro",
                 UsuarioEmail = ObterUsuarioSession(),
                 UsuarioNome = ObterUsuarioNomeSession()
                 });
