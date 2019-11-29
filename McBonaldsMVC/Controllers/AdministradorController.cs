@@ -11,6 +11,12 @@ namespace McBonaldsMVC.Controllers
         PedidoRepository pedidoRepository = new PedidoRepository();
         public IActionResult Dashboard()
         {
+
+            var ninguemLogado = string.IsNullOrEmpty(ObterUsuariotipoSession());
+
+            if (!ninguemLogado && (uint) TiposUsuario.ADMINISTRADOR == uint.Parse (ObterUsuariotipoSession ()))
+            {
+
             var pedidos = pedidoRepository.ObterTodos();
             DashboardViewModel dashboardViewModel = new DashboardViewModel();
 
@@ -34,7 +40,16 @@ namespace McBonaldsMVC.Controllers
             dashboardViewModel.NomeView = "Dashboard";
             dashboardViewModel.UsuarioEmail = ObterUsuarioSession();
 
-            return View();
+            return View(dashboardViewModel);
+            }
+            else
+            {
+                return View("Erro", new RespostaViewModel()
+                {
+                    NomeView = "Dashboard",
+                    Mensagem = " Você não tem permissão para acessar o Dasboard"
+                });
+            }
         }
     }
 }

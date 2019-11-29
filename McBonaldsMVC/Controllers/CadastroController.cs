@@ -1,4 +1,5 @@
 using System;
+using McBonaldsMVC.Enums;
 using McBonaldsMVC.Models;
 using McBonaldsMVC.Repositories;
 using McBonaldsMVC.ViewModels;
@@ -19,17 +20,25 @@ namespace McBonaldsMVC.Controllers
                 UsuarioNome = ObterUsuarioNomeSession()
                 
             });
-            
         }
         public IActionResult CadastrarCliente(IFormCollection form)
         {
             ViewData["Action"] = "Cadastro";
             try{
-                Cliente cliente = new Cliente(form["nome"],form["endereco"],form["telefone"],form["senha"],form["email"],DateTime.Parse(form["data-nascimento"]));
+                Cliente cliente = new Cliente
+                (form["nome"],
+                form["endereco"],
+                form["telefone"],
+                form["senha"],
+                form["email"],
+                DateTime.Parse(form["data-nascimento"]));
+                
+                cliente.TipoUsuario = (uint) TiposUsuario.CLIENTE;
                 
                 clienteRepository.Inserir(cliente);
                 
-                return View("Sucesso", new RespostaViewModel(){
+                return View("Sucesso", new RespostaViewModel()
+                {
                 NomeView = "Cadastro",
                 UsuarioEmail = ObterUsuarioSession(),
                 UsuarioNome = ObterUsuarioNomeSession()
@@ -38,7 +47,12 @@ namespace McBonaldsMVC.Controllers
             catch(Exception e)
             {
                 System.Console.WriteLine(e.StackTrace);
-                return View("Erro");
+                return View("Erro", new RespostaViewModel()
+                {
+                    NomeView = "Cadastro",
+                    UsuarioEmail = ObterUsuarioSession(),
+                    UsuarioNome = ObterUsuarioNomeSession()
+                });
             }
         }
     }
